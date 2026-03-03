@@ -1,7 +1,6 @@
 # INFO: Create AWS EKS Node Group - private
 # ? https://registry.terraform.io/providers/-/aws/latest/docs/resources/eks_node_group
 
-
 /*
 
 resource "aws_eks_node_group" "eks_ng_private" {
