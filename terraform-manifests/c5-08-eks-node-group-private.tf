@@ -18,6 +18,9 @@ resource "aws_eks_node_group" "eks_ng_private" {
   instance_types = [var.instance_type_private]
 
   # TODO: To be replaced with SSM access, no Bastion host present in this configuration
+  # ! If you specify this configuration, but do not specify source_security_group_ids when you create an EKS Node Group, either port 3389 for Windows, or port 22 for all other operating systems is opened on the worker nodes to the Internet (0.0.0.0/0) !!!
+  # ? https://registry.terraform.io/providers/-/aws/latest/docs/resources/eks_node_group#remote_access-configuration-block
+    
   #  remote_access {
   #    ec2_ssh_key = "eks-terraform-key"
   #  }
