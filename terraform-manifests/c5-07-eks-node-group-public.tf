@@ -1,6 +1,8 @@
 # INFO: Create AWS EKS Node Group - public
 # ? https://registry.terraform.io/providers/-/aws/latest/docs/resources/eks_node_group
 
+/*
+
 # TODO: Consider using Launch Template insteaed of aws_eks_node_group. Investigate pros and cons.
 resource "aws_eks_node_group" "eks_ng_public" {
   cluster_name = aws_eks_cluster.eks_cluster.name
@@ -48,3 +50,5 @@ resource "aws_eks_node_group" "eks_ng_public" {
     Name = "Public-Node-Group"
   }
 }
+
+*/
