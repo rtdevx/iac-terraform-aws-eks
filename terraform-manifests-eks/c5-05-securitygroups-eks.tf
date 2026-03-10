@@ -1,3 +1,8 @@
+/*
+
+# ! TEMPORARY - in combination with Launch Template scenario allow NodePort access for testing.
+# ! NOT TO BE USED
+
 resource "aws_security_group" "eks_nodes_sg" {
 	name        = "${local.name}-eks-nodes-sg"
 	description = "EKS nodes SG used for quick testing (opens NodePort range)"
@@ -5,6 +10,7 @@ resource "aws_security_group" "eks_nodes_sg" {
 
 	ingress {
 		description = "Allow NodePort range for testing"
+		#from_port   = 1
 		from_port   = 30000
 		to_port     = 32767
 		protocol    = "tcp"
@@ -20,3 +26,5 @@ resource "aws_security_group" "eks_nodes_sg" {
 
 	tags = local.common_tags
 }
+
+*/

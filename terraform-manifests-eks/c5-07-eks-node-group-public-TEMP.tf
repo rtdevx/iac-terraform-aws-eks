@@ -1,3 +1,8 @@
+# ! TEMPORARY - in combination with appropriate security groups (c5-05-security-groups-eks.tf) we can allow NodePort access for testing.
+# ! NOT TO BE USED
+
+/*
+
 # INFO: Create AWS EKS Node Group - public
 # Includes a Launch Template that attaches a test Security Group (opens NodePort range).
 # Quick-test only — do NOT keep in production.
@@ -66,3 +71,5 @@ resource "aws_eks_node_group" "eks_ng_public" {
     Name = "Public-Node-Group"
   }
 }
+
+*/
