@@ -16,8 +16,9 @@ jobs:
       matrix:
         #dir: ["module-a", "module-b", "modules/module-c"]
         dir: [
-          # Core
+
           "terraform-manifests"
+
           ]
     steps:
       - uses: actions/checkout@v3

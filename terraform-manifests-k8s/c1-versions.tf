@@ -1,5 +1,6 @@
 # INFO: Terraform Block
-# ? https://registry.terraform.io/providers/hashicorp/aws/latest/docs#example-usage
+# ? Terraform Provider: https://registry.terraform.io/providers/hashicorp/aws/latest/docs#example-usage
+# ? Kubernetes Provider: https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs
 
 terraform {
   required_version = "~> 1.13.0" # NOTE: Greater than 1.13.2. Only the most upright version number (.0) can change.
@@ -8,6 +9,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 6.0" # NOTE: Greater than 6.0. Only the most upright version number (.0) can change.
     }
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+      version = ">= 3.0"
+    }     
   }
 
   # INFO: S3 Backend Block
@@ -20,7 +25,7 @@ terraform {
 
 # INFO: Provider Block
 provider "aws" {
-  region = var.aws_region
+  //region = var.aws_region
   # NOTE: Profile only required when running Terraform locally on your desktop/laptop. CodePipeline will use Parameters defined in the Parameter Store.
   //profile = "default" # NOTE: AWS Credentials Profile (profile = "default") configured on your local desktop terminal ($HOME/.aws/credentials)
 } 
