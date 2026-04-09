@@ -17,6 +17,7 @@ resource "kubernetes_service_v1" "np_service" {
     }
 
     type = "NodePort"
+    
   }
 }
 

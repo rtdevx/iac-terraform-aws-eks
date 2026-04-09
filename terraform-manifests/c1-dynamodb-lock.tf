@@ -3,7 +3,7 @@
 /*
 
 resource "aws_dynamodb_table" "statelock" {
-  name         = "${local.name}-statelock"
+  name         = "${local.name}-statelock" # NOTE: Corresponding value must be enabled in Remote Backend section (env_*.conf)
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
 

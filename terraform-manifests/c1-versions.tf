@@ -3,7 +3,7 @@
 # ? Kubernetes Provider: https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs
 
 terraform {
-  required_version = "~> 1.13.0" # NOTE: Greater than 1.13.2. Only the most upright version number (.0) can change.
+  required_version = "~> 1.13.0" # NOTE: Greater than 1.13.0. Only the most upright version number (.0) can change.
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -11,7 +11,7 @@ terraform {
     }
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = ">= 3.0"
+      version = "~> 3.0"
     }
   }
 
