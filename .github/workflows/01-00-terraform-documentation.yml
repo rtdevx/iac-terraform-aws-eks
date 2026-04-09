@@ -17,7 +17,8 @@ jobs:
         #dir: ["module-a", "module-b", "modules/module-c"]
         dir: [
 
-          "terraform-manifests"
+          "terraform-manifests-eks",
+          "terraform-manifests-k8s"
 
           ]
     steps:
