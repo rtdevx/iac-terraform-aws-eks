@@ -30,21 +30,3 @@ provider "aws" {
   # NOTE: Profile only required when running Terraform locally on your desktop/laptop. CI/CD will be configured in a different way.
   //profile = "default" # NOTE: AWS Credentials Profile (profile = "default") configured on your local desktop terminal ($HOME/.aws/credentials)
 }
-
-# INFO: Kubernetes
-# ? aws_eks_cluster: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster
-# ? aws_eks_cluster_auth: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster_auth
-
-data "aws_eks_cluster" "eks_cluster" {
-  name = aws_eks_cluster.eks_cluster.id
-}
-
-data "aws_eks_cluster_auth" "eks_cluster_auth" {
-  name = aws_eks_cluster.eks_cluster.id
-}
-
-provider "kubernetes" {
-  host                   = data.aws_eks_cluster.eks_cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.eks_cluster.certificate_authority[0].data)
-  token                  = data.aws_eks_cluster_auth.eks_cluster_auth.token
-}
