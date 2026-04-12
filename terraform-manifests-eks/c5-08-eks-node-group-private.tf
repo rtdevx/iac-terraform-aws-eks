@@ -9,11 +9,11 @@ resource "aws_eks_node_group" "eks_ng_private" {
   node_group_name = "${local.name}-eks-ng-private"
   node_role_arn   = aws_iam_role.eks_nodegroup_role.arn
   subnet_ids      = module.vpc.private_subnets
-  version = var.cluster_version # NOTE: If not present, nodes will not be updated as part of cluster upgrade
+  version = var.cluster_version # NOTE: If not present, nodes will NOT be updated as part of cluster upgrade
 
   #ami_type = "AL2_x86_64" # Not compatible with ~> 1.32 Kubernetes
   ami_type       = "AL2023_x86_64_STANDARD" # ? https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType  
-  capacity_type  = "ON_DEMAND"
+  capacity_type  = "SPOT" # NOTE: ON_DEMAND | SPOT | CAPACITY_BLOCK
   disk_size      = 20
   instance_types = [var.instance_type_private]
 
@@ -26,9 +26,9 @@ resource "aws_eks_node_group" "eks_ng_private" {
   #  }
 
   scaling_config {
-    desired_size = 1
-    min_size     = 1
-    max_size     = 2
+    desired_size = var.environment == "prod" ? 2 : 1
+    min_size     = var.environment == "prod" ? 2 : 1
+    max_size     = var.environment == "prod" ? 4 : 2
   }
 
   # NOTE: Desired max percentage of unavailable worker nodes during node group update.

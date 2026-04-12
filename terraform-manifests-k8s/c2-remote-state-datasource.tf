@@ -1,4 +1,4 @@
-# INFO: Terraform Remote State Datasource
+# INFO: Terraform Remote State Datasource (of the EKS Cluster!)
 
 data "terraform_remote_state" "eks" {
   backend = "s3"
