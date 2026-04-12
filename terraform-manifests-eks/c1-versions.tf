@@ -9,10 +9,6 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 6.0" # NOTE: Greater than 6.0. Only the most upright version number (.0) can change.
     }
-    kubernetes = {
-      source  = "hashicorp/kubernetes"
-      version = "~> 3.0"
-    }
   }
 
   # INFO: S3 Backend Block

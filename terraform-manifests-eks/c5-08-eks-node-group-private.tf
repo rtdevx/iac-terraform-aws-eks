@@ -13,7 +13,7 @@ resource "aws_eks_node_group" "eks_ng_private" {
 
   #ami_type = "AL2_x86_64" # Not compatible with ~> 1.32 Kubernetes
   ami_type       = "AL2023_x86_64_STANDARD" # ? https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType  
-  capacity_type  = "SPOT" # NOTE: ON_DEMAND | SPOT | CAPACITY_BLOCK
+  capacity_type  = var.environment == "prod" ? "ON_DEMAND" : "SPOT" # NOTE: ON_DEMAND | SPOT | CAPACITY_BLOCK
   disk_size      = 20
   instance_types = [var.instance_type_private]
 
