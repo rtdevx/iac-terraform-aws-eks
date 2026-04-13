@@ -29,4 +29,11 @@ variable "platform" {
   default     = "aws"
 }
 
+# INFO: Business Division
+variable "business_divsion" {
+  description = "Business Division in the large organization this Infrastructure belongs"
+  type        = string
+  default     = "ops"
+}
+
 # ! Default values will be overwritten in terraform.tfvars

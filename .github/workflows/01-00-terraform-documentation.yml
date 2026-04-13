@@ -17,9 +17,10 @@ jobs:
         #dir: ["module-a", "module-b", "modules/module-c"]
         dir: [
 
+          "terraform-manifests-ebs",
           "terraform-manifests-eks",
           "terraform-manifests-k8s"
-
+          
           ]
     steps:
       - uses: actions/checkout@v6
