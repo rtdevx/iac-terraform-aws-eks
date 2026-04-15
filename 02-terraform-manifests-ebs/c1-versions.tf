@@ -9,9 +9,17 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 6.0" # NOTE: Greater than 6.0. Only the most upright version number (.0) can change.
     }
-    kubernetes = {
-      source  = "hashicorp/kubernetes"
-      version = "~> 3.0"
+    helm = {
+      source = "hashicorp/helm"
+      #version = "2.4.1"
+      #version = "~> 2.4"
+      version = "~> 2.9"
+    }
+    http = {
+      source = "hashicorp/http"
+      #version = "2.1.0"
+      #version = "~> 2.1"
+      version = "~> 3.3"
     }
   }
 
